@@ -1,7 +1,9 @@
+import Login from "./pages/login/Login";
+import "./main.css"
 function App() {
   return (
     <div>
-      Hello world!
+      <Login/>
     </div>
   );
 }
