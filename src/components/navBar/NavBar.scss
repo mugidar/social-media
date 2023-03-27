@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 50px;
+  position: sticky;
+  border-bottom: 1px solid gray;
+  .left {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    span {
+      font-weight: bold;
+      font-size: 20px;
+      color: purple;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      border-radius: 10px;
+      border: 1px solid lightgray;
+      input {
+        width: 500px;
+        border: 0;
+        outline: 0;
+      }
+    }
+  }
+  .right {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      img {
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        object-position: 0 -5px;
+      }
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+      color: lighten($color: #000000, $amount: 50);
+    }
+    &:active {
+      transition: 0.1s;
+      color: lighten($color: #000000, $amount: 10);
+    }
+  }
+}
