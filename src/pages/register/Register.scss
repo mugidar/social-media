@@ -1,0 +1,81 @@
+.register {
+  height: 100vh;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(185, 168, 255);
+  .card {
+    overflow: hidden;
+    flex-direction: row-reverse;
+    border-radius: 15px;
+    display: flex;
+    min-height: 600px;
+    .left {
+      flex: 1;
+      background-image: linear-gradient(
+          rgba(68, 0, 255, 0.703),
+          rgba(0, 0, 0, 0.189)
+        ),
+        url("https://images.pexels.com/photos/4881619/pexels-photo-4881619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-size: auto;
+      background-repeat: no-repeat;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      color: white;
+      h1 {
+        font-size: 72px;
+        line-height: 70px;
+      }
+      p {
+      }
+      span {
+        font-size: 14px;
+      }
+      button {
+        padding: 10px 40px;
+        border: 0;
+        background-color: white;
+        color: rgba(128, 0, 128, 0.652);
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+    .right {
+      background-color: white;
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 50px;
+      h1 {
+        color: #555;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        input {
+          border: none;
+          border-bottom: 1px solid lightgray;
+          padding: 20px 10px;
+          outline: 0;
+        }
+        button {
+          border: none;
+          padding: 15px 0;
+          background-color: rgb(176, 128, 224);
+          color: white;
+          cursor: pointer;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
