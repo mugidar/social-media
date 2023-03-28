@@ -1,5 +1,8 @@
 @import "../../main.scss";
 .leftbar {
+  @include mobile {
+    display: none;
+  }
   @include themify($themes) {
     flex: 2;
     position: sticky;
@@ -63,6 +66,8 @@
           }
 
           span {
+            
+            
             color: themed("textColor");
             user-select: none;
           }

@@ -1,0 +1,109 @@
+@import "../../main.scss";
+
+.profile {
+  @include themify($themes) {
+    background-color: themed("bgSoft");
+
+    .images {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      .banner {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+      .profile {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 200px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+    .profile_container {
+      padding: 60px 30px;
+      .profile_user_info {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 180px;
+        box-shadow: 0 0 25px -10px black;
+        border-radius: 20px;
+        background-color: themed("bg");
+        color: themed("textColor");
+        padding: 50px;
+
+        @include mobile {
+          flex-direction: column;
+
+          gap: 20px;
+        }
+
+        .left {
+          flex: 1;
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          justify-content: center;
+          a {
+            color: themed("textColorSoft");
+          }
+        }
+
+        .middle {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+
+          span {
+            font-size: 24px;
+            font-weight: 500;
+          }
+
+          .info {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            .item {
+              color: themed("textColorSoft");
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+            }
+            span {
+              font-size: 12px;
+            }
+          }
+
+          button {
+            border: 0;
+            background-color: #5271ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+
+        .right {
+          flex: 1;
+          align-items: center;
+          justify-content: flex-end;
+          display: flex;
+          gap: 10px;
+          color: themed("textColorSoft");
+        }
+      }
+    }
+  }
+}

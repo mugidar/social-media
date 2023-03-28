@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <div className="left">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/home" style={{ textDecoration: "none" }}>
           <span>GOPO SOCIAL</span>
         </Link>
         <HomeOutlined />

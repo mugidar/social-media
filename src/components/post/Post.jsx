@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.scss";
 
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -7,11 +7,14 @@ import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { Link } from "react-router-dom";
+import Comments from "../comments/Comments";
 
 const Post = ({ name, img, profilePic, userId, description }) => {
+  const [commentOpen, setCommentOpen] = useState(false);
+  const [likesAmount, setLikesAmount] = useState(Math.floor(Math.random() * 10415));
+  const [liked, setLiked] = useState(false);
   //temp
-  const liked = false;
-
+console.log(liked)
   return (
     <div className="post">
       <div className="container">
@@ -35,19 +38,30 @@ const Post = ({ name, img, profilePic, userId, description }) => {
           <img src={img} alt="" />
         </div>
         <div className="info">
-          <div className="info_item">
-            {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
-            <span>12 Likes</span>
+          <div className="info_item likes" onClick={() => {
+                setLiked(!liked);
+                setLikesAmount(prev => prev + 1);
+              }}>
+            {liked ? <FavoriteOutlinedIcon style={{color:"red"}}/> : <FavoriteBorderOutlinedIcon  />}
+            <span
+              
+            >
+              {likesAmount}
+            </span>
           </div>
-          <div className="info_item">
+          <div
+            className="info_item comments"
+            onClick={() => setCommentOpen(!commentOpen)}
+          >
             <TextsmsOutlinedIcon />
-            <span>42 Comments</span>
+            <span>42</span>
           </div>
-          <div className="info_item">
+          <div className="info_item share">
             <ShareOutlinedIcon />
             <span>Share</span>
           </div>
         </div>
+        {commentOpen && <Comments />}
       </div>
     </div>
   );

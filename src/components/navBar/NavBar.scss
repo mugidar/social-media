@@ -2,6 +2,9 @@
 
 .navbar {
   @include themify($themes) {
+    @include mobile {
+      justify-content: center;
+    }
     z-index: 9999;
     display: flex;
     justify-content: space-between;
@@ -19,9 +22,8 @@
       align-items: center;
       display: flex;
       gap: 10px;
-
-      
-      .darkmode_icon{
+      white-space: nowrap;
+      .darkmode_icon {
         width: 24px;
         height: 24px;
       }
@@ -38,30 +40,50 @@
         border-radius: 10px;
         border: 1px solid lightgray;
         input {
+          @include mobile {
+            display: none;
+            width: 50%;
+          }
+
           background-color: themed("bg");
           color: themed("textColor");
-          width: 500px;
+          width: 100%;
           border: 0;
           outline: 0;
         }
       }
     }
     .right {
+     
+
       align-items: center;
       display: flex;
       gap: 20px;
+      svg {
+        @include mobile {
+          display: none;
+        }
+      }
       .user {
         display: flex;
         align-items: center;
         gap: 10px;
         img {
+          @include mobile {
+            margin-left: 10px;
+          }
           border-radius: 100%;
           width: 30px;
           height: 30px;
           object-fit: cover;
-         
         }
         span {
+          @include tablet {
+            display: none;
+          }
+          @include mobile {
+            display: none;
+          }
           color: themed("textColor");
           font-weight: 600;
         }

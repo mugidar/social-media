@@ -1,5 +1,10 @@
+@import "../../main.scss";
+
 .posts {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+  @include themify($themes) {
+    color: themed("textColor");
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
 }

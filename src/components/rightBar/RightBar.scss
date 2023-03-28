@@ -2,13 +2,24 @@
 @import "../../main.scss";
 
 .rightbar {
+  
+
   @include themify($themes) {
+    
     flex: 3;
     position: sticky;
     top: 70px;
     height: calc(100vh - 70px);
     overflow-y: scroll;
     color: themed("textColor") ;
+
+    @include mobile{
+      display: none;
+    }
+    @include tablet{
+      display: none;
+    }
+
     .container {
       height: 100%;
       padding: 20px;
@@ -71,7 +82,8 @@
             border: 0;
             outline: 0;
             border-radius: 12px;
-            padding: 5px 15px;
+            width: 75px;
+            height: 28px;
             cursor: pointer;
             transition: 0.3s;
 

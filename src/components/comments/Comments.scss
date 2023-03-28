@@ -1,0 +1,78 @@
+@import "../../main.scss";
+
+.comments {
+  
+  @include themify($themes) {
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .write_comment{
+      display: flex;
+      margin-top: 20px;
+      gap: 15px;
+      min-height: 40px;
+      align-items: flex-start;
+
+      
+      img {
+        align-self: flex-start;
+      }
+      textarea {@include mobile {
+       width: 50px;
+      }
+        box-shadow: 0 0 10px;
+        border-radius: 14px;
+        padding: 10px;
+        flex: 5;
+        min-height: 40px;
+        max-height: 300px;
+        resize: none;
+        outline: none;
+        &::-webkit-scrollbar{
+          display: none;
+        }
+      }
+
+      button {
+        align-self: flex-end;
+        border-radius: 16px;
+        height: 40px;
+        outline: none;
+        border: 0;
+        cursor: pointer;
+        background-color: rgb(110, 36, 154);
+      }
+    }
+
+    .comment {
+      margin: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      .info {
+        
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        span {
+          font-weight: 500;
+        }
+
+        p {
+          color: themed("textColorSoft");
+        }
+      }
+      .comment_date {
+        flex: 1;
+        font-size: small;
+        align-self: center;
+      }
+    }
+  }
+}
