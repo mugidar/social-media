@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./LeftBar.scss";
+import "../../variables.scss"
+
 import Diversity3OutlinedIcon from "@mui/icons-material/Diversity3Outlined";
 import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
@@ -13,6 +15,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
+import { AuthContext } from "../../context/authContext";
 
 const generalItems = [
   { title: "Friends", icon: <Diversity3OutlinedIcon /> },
@@ -37,6 +40,9 @@ const otherItems = [
 ];
 
 const LeftBar = () => {
+  const { currentUser } = useContext(AuthContext);
+
+
   return (
     <div className="leftbar">
       <div className="container">
@@ -44,13 +50,13 @@ const LeftBar = () => {
           <div className="left-bar_list general">
             <div className="user">
               <img
-                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src={currentUser.img}
                 alt=""
               />
-              <span className="left-bar_list-title">Jirnaya Kastrulya</span>
+              <span className="left-bar_list-title">{currentUser.name} {currentUser.lastname}</span>
             </div>
-            {generalItems.map((item) => (
-              <div className="item">
+            {generalItems.map((item,index) => (
+              <div key={index} className="item">
                 {item.icon}
                 <span>{item.title}</span>
               </div>
@@ -58,8 +64,8 @@ const LeftBar = () => {
           </div>
           <div className="left-bar_list shortcuts">
             <span className="left-bar_list-title">Your shortcuts</span>
-            {shortcutsItems.map((item) => (
-              <div className="item">
+            {shortcutsItems.map((item,index) => (
+              <div key={index} className="item">
                 {item.icon}
                 <span>{item.title}</span>
               </div>
@@ -67,8 +73,26 @@ const LeftBar = () => {
           </div>
           <div className="left-bar_list others">
             <span className="left-bar_list-title">Others</span>
-            {otherItems.map((item) => (
-              <div className="item">
+            {otherItems.map((item,index) => (
+              <div key={index} className="item">
+                {item.icon}
+                <span>{item.title}</span>
+              </div>
+            ))}
+          </div>
+          <div className="left-bar_list others">
+            <span className="left-bar_list-title">Others</span>
+            {otherItems.map((item,index) => (
+              <div key={index} className="item">
+                {item.icon}
+                <span>{item.title}</span>
+              </div>
+            ))}
+          </div>
+          <div className="left-bar_list others">
+            <span className="left-bar_list-title">Others</span>
+            {otherItems.map((item,index) => (
+              <div key={index} className="item">
                 {item.icon}
                 <span>{item.title}</span>
               </div>

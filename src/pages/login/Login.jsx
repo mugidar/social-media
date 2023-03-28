@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 import "./Login.scss";
 
 const Login = () => {
+  const {login} = useContext(AuthContext)
+
   return (
     <div className="login">
       <div className="card">
@@ -21,7 +24,10 @@ const Login = () => {
           <form action="">
             <input autoComplete="false" placeholder="Username" type="text" />
             <input  autoComplete="false" placeholder="Password" type="password" />
-            <button>Login</button>
+            <button onClick={(e) => {
+              e.preventDefault()
+              login()
+            }}>Login</button>
           </form>
         </div>
       </div>

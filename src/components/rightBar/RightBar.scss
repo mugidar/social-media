@@ -1,3 +1,166 @@
+@import "../../variables.scss";
+@import "../../main.scss";
+
 .rightbar {
+  @include themify($themes) {
     flex: 3;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+    color: themed("textColor") ;
+    .container {
+      height: 100%;
+      padding: 20px;
+      flex-direction: column;
+      display: flex;
+      .group_item {
+        box-shadow: 0 0 10px 1px rgb(0, 0, 0) ;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: themed("bg");
+        margin: 10px 0;
+        .group_item-title {
+          color: themed("textColor");
+          font-weight: 600;
+        }
+        .items {
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          margin-top: 15px;
+          .user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .user_activity {
+              font-size: small;
+              color:  themed("textColorSoft") !important;
+            }
+            .user_activity.time {
+              font-size: smaller;
+            }
+            .user_info {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+
+              img {
+                object-fit: cover;
+                min-width: 40px;
+                min-height: 40px;
+                max-width: 40px;
+                max-height: 40px;
+                border-radius: 100%;
+              }
+              span {
+                color: themed("textColor");
+              }
+            }
+          }
+        }
+      }
+
+      .group_item.suggestions {
+        .buttons {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .suggestions_btn {
+            border: 0;
+            outline: 0;
+            border-radius: 12px;
+            padding: 5px 15px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &.follow {
+              &:hover {
+                background-color: lighten(
+                  $color: $follow_btn-color,
+                  $amount: 20
+                );
+              }
+              &:active {
+                background-color: lighten(
+                  $color: $follow_btn-color,
+                  $amount: 0
+                );
+              }
+              background-color: $follow_btn-color;
+            }
+            &.dismiss {
+              &:hover {
+                background-color: lighten(
+                  $color: $dismiss_btn-color,
+                  $amount: 20
+                );
+              }
+              &:active {
+                background-color: lighten(
+                  $color: $dismiss_btn-color,
+                  $amount: 0
+                );
+              }
+              background-color: $dismiss_btn-color;
+            }
+          }
+        }
+      }
+
+      .group_item.online_friends {
+        flex: 2;
+        position: relative;
+        overflow: hidden;
+        .items {
+          max-height: 500px;
+          overflow-y: scroll;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        //Shadow to hide sharp end of list
+        &::after {
+          display: block;
+          z-index: 2000;
+          box-shadow: 0 0 15px 25px themed("bg");
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: themed("bg");
+        }
+
+        .user {
+          .user_info {
+            .user_img {
+              position: relative;
+              &::after {
+                display: block;
+                content: "";
+                right: 0px;
+                z-index: 1000;
+                top: 0px;
+                width: 12px;
+                height: 12px;
+                border-radius: 100%;
+
+                background-color: rgb(66, 180, 66);
+                box-shadow: 0 0 5px;
+                position: absolute;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }

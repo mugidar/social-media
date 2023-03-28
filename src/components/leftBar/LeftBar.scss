@@ -1,71 +1,99 @@
+@import "../../main.scss";
 .leftbar {
+  @include themify($themes) {
     flex: 2;
-  .container {
-    padding: 20px;
-    .menu {
-      display: flex;
-      flex-direction: column;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    background-color: themed("bg");
+    overflow-y: scroll;
 
-      .user {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        gap: 5px;
-        background-color: rgba(128, 128, 128, 0.241);
-        border-radius: 18px;
-        padding-right: 10px;
-        transition: .2s;
-        img {
-          border-radius: 100%;
-          width: 36px;
-          height: 36px;
-          object-fit: cover;
-          object-position: 0 -5px;
-        }
-        span {
-            margin: 0 auto;
-            font-weight: 600;
-        }
-        &:hover {
-            background-color: rgba(128, 128, 128, 0.587);
-        }
-      }
-      .item {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        cursor: pointer;
-        background-color: rgba(0, 156, 203, 0.278);
-        border-radius: 16px;
-        svg {
-          background-color: rgba(0, 0, 0, 0.661);
-          border-radius: 100%;
-          width: 36px;
-          height: 36px;
-          color: white;
-          padding: 5px;
-          transition: 0.2s;
-        }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .container {
+      padding: 20px;
 
-        span {
-          user-select: none;
-        }
-
-        &:hover svg {
-          background-color: lighten($color: rgba(0, 0, 0, 0.661), $amount: 50);
-        }
-        &:active svg {
-          background-color: lighten($color: rgba(0, 0, 0, 0.661), $amount: 20);
-        }
-      }
-
-      .left-bar_list {
-        padding: 10px 0;
+      .menu {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        &:not(:last-child) {
-          border-bottom: 1px solid gray;
+
+        .user {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          gap: 5px;
+          background-color: rgba(181, 181, 181, 0.587);
+          border-radius: 18px;
+          padding-right: 10px;
+          transition: 0.2s;
+          img {
+            border-radius: 100%;
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+            
+          }
+          span {
+            color: black !important;
+            margin: 0 auto;
+            font-weight: 600;
+          }
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.587);
+          }
+        }
+        .item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          cursor: pointer;
+          background-color: themed("leftItem");
+          border-radius: 22px;
+          svg {
+            border: 1px solid themed("border");
+            box-shadow: 0 0 5px 1px;
+            background-color: themed("bg");
+            border-radius: 100%;
+            width: 36px;
+            height: 36px;
+            color: themed("textColor");
+            padding: 5px;
+            transition: 0.2s;
+          }
+
+          span {
+            color: themed("textColor");
+            user-select: none;
+          }
+
+          &:hover svg {
+            background-color: lighten(
+              $color: themed("leftItem"),
+              $amount: 20
+            );
+            
+          }
+          &:active svg {
+            background-color: lighten(
+              $color: themed("leftItem"),
+              $amount: 20
+            );
+          }
+        }
+
+        .left-bar_list {
+          padding: 10px 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .left-bar_list-title {
+            color: themed("textColor");
+          }
+          &:not(:last-child) {
+            border-bottom: 1px solid gray;
+          }
         }
       }
     }
