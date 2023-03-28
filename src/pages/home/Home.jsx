@@ -1,40 +1,13 @@
 import React from "react";
+import Posts from "../../components/posts/Posts";
+import Stories from "../../components/stories/Stories";
 import "./Home.scss";
 
 const Home = () => {
   return (
     <div className="home">
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
-      <h1> PLACEHOLDER </h1>
+      <Stories/>
+      <Posts/>
     </div>
   );
 };

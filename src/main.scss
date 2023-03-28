@@ -1,8 +1,8 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 body {
-    background-color: #00000090
+  background-color: #00000090;
 }
 $themes: (
   light: (
@@ -13,6 +13,8 @@ $themes: (
     textColorSoft: #555,
     border: lightgray,
     leftItem: rgba(0, 156, 203, 0.278),
+    shadow: #ffffff,
+    storyText: #ffffff7d,
   ),
   dark: (
     textColor: whitesmoke,
@@ -22,7 +24,9 @@ $themes: (
     textColorSoft: lightgray,
     border: #444,
     leftItem: rgba(13, 173, 222, 0.563),
-  ),
+    shadow: #000000,
+    storyText: #00000083,
+  )
 );
 
 @mixin themify($themes) {
@@ -34,7 +38,7 @@ $themes: (
         $theme-map: map-merge(
           $theme-map,
           (
-            $key: $value,
+            $key: $value
           )
         ) !global;
       }

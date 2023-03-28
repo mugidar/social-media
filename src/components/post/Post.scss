@@ -1,0 +1,60 @@
+@import "./../../main.scss";
+
+.post {
+  @include themify($themes) {
+    box-shadow: 0 0 25px -10px black;
+    border-radius: 10px;
+
+    .container {
+      padding: 20px;
+      .user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .user_info {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 100%;
+          }
+          .details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .name {
+              font-weight: 500;
+            }
+            .post_date {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .content {
+        margin: 20px 0;
+        img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+      }
+
+      .info {
+        display: flex;
+        gap: 20px;
+        .info_item {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+      }
+    }
+  }
+}

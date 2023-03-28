@@ -1,0 +1,49 @@
+@import "./../../main.scss";
+.stories {
+  @include themify($themes) {
+    display: flex;
+    gap: 10px;
+    height: 300px;
+    margin-bottom: 30px;
+    .story {
+      cursor: pointer;
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      border-radius: 12px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      span {
+        user-select: none;
+        bottom: 5px;
+        left: 10px;
+        position: absolute;
+        font-weight: 600;
+        text-shadow: 0 0 10px themed("shadow");
+        background-color: themed("storyText");
+        border-radius: 10px;
+        padding: 5px 10px;
+      }
+      button {
+        cursor: pointer;
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        color: white;
+        background-color: purple;
+        border: none;
+        border-radius: 100%;
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
