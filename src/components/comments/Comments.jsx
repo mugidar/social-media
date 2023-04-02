@@ -46,7 +46,7 @@ const Comments = () => {
           cols="30"
           rows="1"
         />
-        <button>Comment</button>
+        <button >Comment</button>
       </div>
       {comments.map((comment) => (
         <div key={comment.id} className="comment">

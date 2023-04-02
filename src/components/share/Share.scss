@@ -1,0 +1,70 @@
+@import "../../main.scss";
+.share {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 30px 0;
+    padding: 30px;
+    border-radius: 40px;
+
+    background-color: themed("bg");
+
+ 
+    .share_upper_content {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.543);
+      padding-bottom: 10px;
+      img {
+        align-self: flex-start;
+        width: 40px;
+        height: 40px;
+      }
+
+      .share_post_description {
+        width: 100%;
+        textarea {
+          border: 0;
+          outline: none;
+          width: 100%;
+          max-height: 240px;
+          resize: none;
+        }
+      }
+    }
+
+    .share_bottom_content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 15px;
+      .share_bottom_post-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .share_bottom_post-button {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+      }
+      .share_bottom_share-button {
+        button {
+          cursor: pointer;
+          border: 0;
+          padding: 5px 15px;
+          background-color: #ff00ff8f;
+          transition: 0.4s;
+          &:hover {
+            background-color: lighten($color: #ff00ff8f, $amount: 40);
+          }
+          &:active {
+            background-color: lighten($color: #ff00ff8f, $amount: 10);
+          }
+        }
+      }
+    }
+  }
+}

@@ -42,7 +42,6 @@ const otherItems = [
 const LeftBar = () => {
   const { currentUser } = useContext(AuthContext);
 
-
   return (
     <div className="leftbar">
       <div className="container">
@@ -50,7 +49,7 @@ const LeftBar = () => {
           <div className="left-bar_list general">
             <div className="user">
               <img
-                src={currentUser.img}
+                src={currentUser.profile_pic}
                 alt=""
               />
               <span className="left-bar_list-title">{currentUser.name} {currentUser.lastname}</span>

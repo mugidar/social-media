@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import "./Profile.scss";
 import Posts from "../posts/Posts.jsx";
@@ -11,10 +11,11 @@ import PlaceIcon from "@mui/icons-material/Place";
 import LanguageIcon from "@mui/icons-material/Language";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { AuthContext } from "../../context/authContext";
 
 const Profile = () => {
   const { id } = useParams();
-
+  const {currentUser} = useContext(AuthContext)
   return (
     <div className="profile">
       <div className="images">
@@ -24,7 +25,7 @@ const Profile = () => {
           className="banner"
         />
         <img
-          src="https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={currentUser.profile_pic}
           alt=""
           className="profile"
         />
@@ -32,19 +33,19 @@ const Profile = () => {
       <div className="profile_container">
         <div className="profile_user_info">
           <div className="left">
-            <a href="http://facebook.com">
+            <a target="blank"  href="http://facebook.com">
               <FacebookOutlinedIcon fontSize="large" />
             </a>
-            <a href="http://linkedin.com">
+            <a  target="blank" href="http://linkedin.com">
               <LinkedInIcon fontSize="large" />
             </a>
-            <a href="http://instagram.com">
+            <a  target="blank" href="http://instagram.com">
               <InstagramIcon fontSize="large" />
             </a>
-            <a href="http://pinterest.com">
+            <a target="blank" href="http://pinterest.com">
               <PinterestIcon fontSize="large" />
             </a>
-            <a href="http://twitter.com">
+            <a target="blank"  href="http://twitter.com">
               <TwitterIcon fontSize="large" />
             </a>
           </div>

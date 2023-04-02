@@ -9,22 +9,24 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { Link } from "react-router-dom";
 import Comments from "../comments/Comments";
 
-const Post = ({ name, img, profilePic, userId, description }) => {
+const Post = ({ name, img, profile_pic, user_id, description }) => {
   const [commentOpen, setCommentOpen] = useState(false);
-  const [likesAmount, setLikesAmount] = useState(Math.floor(Math.random() * 10415));
+  const [likesAmount, setLikesAmount] = useState(
+    Math.floor(Math.random() * 10415)
+  );
   const [liked, setLiked] = useState(false);
   //temp
-console.log(liked)
+
   return (
     <div className="post">
       <div className="container">
         <div className="user">
           <div className="user_info">
-            <img src={profilePic} alt={name} />
+            <img src={profile_pic} alt={name} />
             <div className="details">
               <Link
                 style={{ textDecoration: "none", color: "inherit" }}
-                to={`/profile/${userId}`}
+                to={`/profile/${user_id}`}
               >
                 <span>{name}</span>
               </Link>
@@ -35,19 +37,22 @@ console.log(liked)
         </div>
         <div className="content">
           <p>{description}</p>
-          <img src={img} alt="" />
+          {img && <img src={`./upload/${img}`} alt="" />}
         </div>
         <div className="info">
-          <div className="info_item likes" onClick={() => {
-                setLiked(!liked);
-                setLikesAmount(prev => prev + 1);
-              }}>
-            {liked ? <FavoriteOutlinedIcon style={{color:"red"}}/> : <FavoriteBorderOutlinedIcon  />}
-            <span
-              
-            >
-              {likesAmount}
-            </span>
+          <div
+            className="info_item likes"
+            onClick={() => {
+              setLiked(!liked);
+              setLikesAmount((prev) => prev + 1);
+            }}
+          >
+            {liked ? (
+              <FavoriteOutlinedIcon style={{ color: "red" }} />
+            ) : (
+              <FavoriteBorderOutlinedIcon />
+            )}
+            <span>{likesAmount}</span>
           </div>
           <div
             className="info_item comments"
@@ -56,7 +61,7 @@ console.log(liked)
             <TextsmsOutlinedIcon />
             <span>42</span>
           </div>
-          <div className="info_item share">
+          <div className="info_item">
             <ShareOutlinedIcon />
             <span>Share</span>
           </div>

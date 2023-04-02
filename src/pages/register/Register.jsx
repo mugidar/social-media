@@ -1,8 +1,32 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import "./Register.scss"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Register.scss";
+import axios from "axios";
 
 const Register = () => {
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+    password: "",
+    name: ""
+  });
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("http://localhost:8800/api/auth/register", inputs);
+    } catch (err) {
+      setError(err.response.data)
+      
+    }
+  };
+
   return (
     <div className="register">
       <div className="card">
@@ -14,21 +38,48 @@ const Register = () => {
             pariatur id, soluta nobis laboriosam natus earum!
           </p>
           <span>Do you have an account?</span>
-          <Link to="/login"><button>Log in</button></Link>
+          <Link to="/login">
+            <button>Log in</button>
+          </Link>
         </div>
         <div className="right">
           <h1>Register</h1>
           <form action="">
-            <input autoComplete="false" placeholder="Username" type="text" />
-            <input  autoComplete="false" placeholder="Email" type="email" />
-            <input  autoComplete="false" placeholder="Name" type="text" />
-            <input  autoComplete="false" placeholder="Password" type="password" />
-            <button>Register</button>
+            <input
+              name="username"
+              onChange={handleChange}
+              autoComplete="false"
+              placeholder="Username"
+              type="text"
+            />
+            <input
+              name="email"
+              onChange={handleChange}
+              autoComplete="false"
+              placeholder="Email"
+              type="email"
+            />
+            <input
+              name="password"
+              onChange={handleChange}
+              autoComplete="false"
+              placeholder="Password"
+              type="password"
+            />
+            <input
+              name="name"
+              onChange={handleChange}
+              autoComplete="false"
+              placeholder="Full name"
+              type="text"
+            />
+            {error && <p>{error}</p>}
+            <button onClick={handleClick}>Register</button>
           </form>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

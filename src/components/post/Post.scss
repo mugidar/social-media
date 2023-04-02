@@ -4,7 +4,7 @@
   @include themify($themes) {
     box-shadow: 0 0 25px -10px black;
     border-radius: 10px;
-
+    background-color: themed("bg");
     .container {
       padding: 20px;
       .user {
@@ -37,6 +37,9 @@
       }
 
       .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         margin: 20px 0;
         img {
             width: 100%;
@@ -44,14 +47,15 @@
             object-fit: cover;
         }
       }
-
+    
       .info {
         display: flex;
+        
         gap: 20px;
         .info_item {
           cursor: pointer;
           display: flex;
-          align-items: center;
+          
           gap: 5px;
         }
       }

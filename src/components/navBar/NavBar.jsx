@@ -17,11 +17,10 @@ const NavBar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { currentUser } = useContext(AuthContext);
 
-
   return (
     <div className="navbar">
       <div className="left">
-        <Link to="/home" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <span>GOPO SOCIAL</span>
         </Link>
         <HomeOutlined />
@@ -41,10 +40,14 @@ const NavBar = () => {
         <NotificationsNoneOutlinedIcon />
         <div className="user">
           <img
-            src={currentUser.img}
+            src={
+              currentUser.profile_pic
+            }
             alt=""
           />
-          <span>{currentUser.name} {currentUser.lastname}</span>
+          <span>
+            {currentUser.name} {currentUser.lastname}
+          </span>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 .home {
   @include themify($themes) {
     padding: 20px;
-    background-color: themed("bg");
+    background-color: themed("homeBg");
     color: themed('textColor');
   }
 }

@@ -28,7 +28,6 @@ const Stories = () => {
     }
   ];
 
-  console.log(currentUser)
   return (
     <div className="stories">
       <div className="story">
